@@ -12,7 +12,7 @@ ____
 
 Before you can successfully communicate with the devices, you must first master core Azure IoT Hub skills.  To prepare, first complete the following two exercises:
 
-> **Note**: Even if you are working in teams, it is recommended that each team member complete the core skill training exercises.  This will make sure that the entire team is ready to accomplish the Mission Objectives. 
+> **Note**: Even if you are working in teams, it is recommended that each team member complete the core skill training exercises.  This will make sure that the entire team is ready to accomplish the Mission Objectives.
 
 1. Getting Started with Azure IoT Hubs (pick your preferred langauge):
     - C#: "<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/iot-hub-csharp-csharp-getstarted/">Get started with Azure IoT Hub for .NET</a>"
@@ -54,6 +54,8 @@ The name displayed on your card is your team name. You must use that name on all
 Before we send any commands to the coffee pot, we first need to make sure that we are setup to monitor the messages it sends back.  
 
 You will need to modify the code you created in the "Get started with Azure IoT Hub..." exercise above to monitor messages on the space station's IoT Hub, and to listen specifically for messages from the coffee pot.  To do that, you will need the following information:
+
+***CONFIRM THE PROPER VALUES WITH THE ONSITE MISSION STAFF***
 
 | Item | Value |
 | ---- | ----- |
@@ -97,6 +99,10 @@ Use the information above to modify the code in the "**Receive device-to-cloud m
 
 
 ### Objective 3: Ping the coffee pot
+
+Using a top-secret technology called "Quantum Entanglement", your on-site mission leads are running a "twin" of the coffee pot code.  Whatever communications you have with the coffe pot on the Mars base will be reflected in the on-premise twin displayed on the projector in the room.  You can use the output of the twin to verify the information you gather from your own code.
+
+![Coffee Pot Twin](images/coffeepottwin.png)
 
 Now that you are ready to receive messages from the coffee pot, you can attempt to send a message to the coffee pot.
 
