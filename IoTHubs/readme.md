@@ -2,7 +2,7 @@
 
 The crew is lost, out of contact with Earth, but they haven’t gone completely dark. We’re picking up some weak signals. Indications that there are still devices running on Mars. 
 
-One of those signals is coming from the crew’s living quarters… it appears to be… a coffee pot. Like all remote devices on Mars, it connects using Azure IoT Hubs, and a command set inspired by the Hypertext Coffee Pot Control Protocol (HTCPCP/v1.0, <a target="_blank" href="https://www.ietf.org/rfc/rfc2324.txt">RFC 2342</a>). 
+One of those signals is coming from the crew’s living quarters… it appears to be… a coffee pot. Like all remote devices on Mars, it connects using Azure IoT Hubs, and a command set inspired by the Hypertext Coffee Pot Control Protocol (HTCPCP/v1.0, <a target="_blank" href="https://aka.ms/rfc2324">RFC 2342</a> - <a target="_blank" href="https://aka.ms/rfc2324">https://aka.ms/rfc2324</a>). 
 
 Now we have a target, let’s get to work. First, you’ll ramp up your core skills on Azure IoT Hubs, then you’ll attempt to establish communications with the coffee pot. Good luck, and good coffee.
 
@@ -14,25 +14,27 @@ Before you can successfully communicate with the devices, you must first master 
 
 > **Note**: Even if you are working in teams, it is recommended that each team member complete the core skill training exercises.  This will make sure that the entire team is ready to accomplish the Mission Objectives.
 
-1. Getting Started with Azure IoT Hubs (pick your preferred langauge):
-    - C#: "<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/iot-hub-csharp-csharp-getstarted/">Get started with Azure IoT Hub for .NET</a>"
-    - Node.js: "<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/iot-hub-node-node-getstarted/">Get started with Azure IoT Hub for Node.js</a>"
-1. Sending Cloud-to-Device (C2D) Messages:
-    - C#: "<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/iot-hub-csharp-csharp-c2d/">How to send cloud-to-device messages with IoT Hub and .Net</a>"
-    - Node.js: "<a target="_blank" href="https://azure.microsoft.com/en-us/documentation/articles/iot-hub-node-node-c2d/">How to send cloud-to-device messages with IoT Hub and Node.js</a>"
+- For **.NET Developers**, complete ***both of the following walkthroughs***:
+    1. "<a target="_blank" href="https://aka.ms/mars-iot-cs-01">Get started with Azure IoT Hub for .NET</a>" - <a target="_blank" href="https://aka.ms/mars-iot-cs-01">https://aka.ms/mars-iot-cs-01</a>
 
-    > **Note**: In the Node.js sample instructions you are told to install the `azure-iothub` npm package.  You must ALSO intsall the `azure-iot-common` npm package:
+    1. "<a target="_blank" href="https://aka.ms/mars-iot-cs-02">How to send cloud-to-device messages with IoT Hub and .Net</a>" - <a target="_blank" href="https://aka.ms/mars-iot-cs-02">https://aka.ms/mars-iot-cs-02</a>
 
-    ```text
-    npm install azure-iothub --save
-    npm install azure-iot-common --save
-    ```
+
+- For **Node.js Developers**, complete ***both of the following walkthroughs***:
+
+    1. "<a target="_blank" href="https://aka.ms/mars-iot-js-01">Get started with Azure IoT Hub for Node.js</a>" - <a target="_blank" href="https://aka.ms/mars-iot-js-01">https://aka.ms/mars-iot-js-01</a>
+
+    1. "<a target="_blank" href="https://aka.ms/mars-iot-js-02">How to send cloud-to-device messages with IoT Hub and Node.js</a>" - <a target="_blank" href="https://aka.ms/mars-iot-js-02">https://aka.ms/mars-iot-js-02</a>
 
 ____
 
 ## MISSION OBJECTIVES
 
 The main objective of this mission is to establish IoT Hub communications with the coffee pot on Mars. You will be working as a part of a team on this objective.
+
+Using a top-secret technology called "Quantum Entanglement", your on-site mission leads are running a "twin" of the coffee pot code.  Whatever communications you have with the coffee pot on the Mars base will be reflected in the on-premises twin displayed on the projector in the room.  You can use the output of the twin to verify the information you gather from your own code.
+
+![Coffee Pot Twin](images/coffeepottwin.png)
 
 Using the skills you mastered in the training, your next task is to accomplish the following objectives:
 
@@ -55,7 +57,7 @@ Before we send any commands to the coffee pot, we first need to make sure that w
 
 You will need to modify the code you created in the "Get started with Azure IoT Hub..." exercise above to monitor messages on the space station's IoT Hub, and to listen specifically for messages from the coffee pot.  To do that, you will need the following information:
 
-***CONFIRM THE PROPER VALUES WITH THE ONSITE MISSION STAFF***
+***CONFIRM THE PROPER VALUES WITH THE ON-SITE MISSION STAFF***
 
 | Item | Value |
 | ---- | ----- |
@@ -70,8 +72,8 @@ Use the information above to modify the code in the "**Receive device-to-cloud m
 
 1. Locate the code:
 
-    a. For .NET it's in the `ReadDeviceToCloudMessages\Program.cs` file, unless you named the project something different.
-    b. For Node.js it's in the `readdevicetocloudmessages\ReadDeviceToCloudMessages.js` file unless you named the folder or file something different.
+    a. For **.NET** it's in the `ReadDeviceToCloudMessages\Program.cs` file, unless you named the project something different.
+    b. For **Node.js** it's in the `readdevicetocloudmessages\ReadDeviceToCloudMessages.js` file unless you named the folder or file something different.
 
 2. Use the "**Complete coffeeclient Connection String**" from above for the value of the `connectionString` variable.  The "**coffeeclient**" SAS Policy on the `marsiot` IoT Hub has "**Service Connect**" permissions. This means that it can connect to the "service" side (not the device side) of the Azure IoT Hub.  It can the listen for "device-to-cloud" messages from the device, or send "cloud-to-device" messages to the device. 
 
@@ -100,17 +102,13 @@ Use the information above to modify the code in the "**Receive device-to-cloud m
 
 ### Objective 3: Ping the coffee pot
 
-Using a top-secret technology called "Quantum Entanglement", your on-site mission leads are running a "twin" of the coffee pot code.  Whatever communications you have with the coffe pot on the Mars base will be reflected in the on-premise twin displayed on the projector in the room.  You can use the output of the twin to verify the information you gather from your own code.
-
-![Coffee Pot Twin](images/coffeepottwin.png)
-
 Now that you are ready to receive messages from the coffee pot, you can attempt to send a message to the coffee pot.
 
 You will use the same connection information provided above.
 
 ***Coffee Pot Cloud-to-Device Message Format***
 
-The coffee pot expects messages to be sent to it in a specific format: 
+The coffee pot expects messages to be sent to it in a specific JSON string format:
 
 ```json
 {
@@ -120,9 +118,15 @@ The coffee pot expects messages to be sent to it in a specific format:
 }
 ```
 
+You do ***not*** have to send the command as multiple lines.  It will likly be easier to compact it down to one line:
+
+```json
+{"Command":"","Team":"","Parameters":""}
+```
+
 ***Coffee Pot Device-to-Cloud Message Format***
 
-When it receives a message and has completed processing it, it will respond with a message in the following format:
+When it receives a message and has completed processing it, it will respond with a message in the following JSON string format:
 
 ```json
 {
