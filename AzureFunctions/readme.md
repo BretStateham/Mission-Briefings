@@ -2,7 +2,7 @@
 
 Our connectivity to Mars is slowly coming back online, but we have not yet made contact with the crew. In order to automate our communication attempts, we’re going to set up a repeating signal which pings the Mars base at regular intervals.
 
-You’ll use Azure functions to accomplish this task, and ensure that when the crew regains access to their equipment they’re aware of our concerns here on Earth. Let’s get to work. 
+You’ll use Azure functions to accomplish this task, and ensure that when the crew regains access to their equipment they’re aware of our concerns here on Earth. Let’s get to work.
 
 ____
 
@@ -21,11 +21,9 @@ Your next task is to accomplish the following objectives:
 
 ### Objective 1: Create a function from the quickstart
 
-A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](functions-create-first-azure-function-azure-portal.md).
+A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](https://aka.ms/mars-functions-alternative) - [https://aka.ms/mars-functions-alternative](https://aka.ms/mars-functions-alternative).
 
-Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
-
-1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
+1. Go to the [Azure Functions portal](https://aka.ms/mars-functions-signin) - [https://aka.ms/mars-functions-signin](https://aka.ms/mars-functions-signin) and sign-in with your Azure account.
 
 2. Type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
 
