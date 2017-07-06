@@ -2,11 +2,7 @@
 
 The crew is lost, out of contact with Earth, but they haven’t gone completely dark. We’re picking up some weak signals. Indications that there are still devices running on Mars.
 
-<<<<<<< HEAD
-One of those signals is coming from the crew’s living quarters… it appears to be… a coffee pot. Like all remote devices on Mars, it connects using Azure IoT Hubs, and a command set inspired by the Hypertext Coffee Pot Control Protocol (HTCPCP/v1.0, <a target="_blank" href="https://aka.ms/rfc2324">RFC 2342</a> - <a target="_blank" href="https://aka.ms/rfc2324">https://aka.ms/rfc2324</a>). 
-=======
 One of those signals is coming from the crew’s living quarters… it appears to be… a coffee pot. Like all remote devices on Mars, it connects using Azure IoT Hubs, and in this case a command set inspired by the Hypertext Coffee Pot Control Protocol (HTCPCP/v1.0, <a target="_blank" href="https://aka.ms/rfc2324">RFC 2342</a> - <a target="_blank" href="https://aka.ms/rfc2324">https://aka.ms/rfc2324</a>).
->>>>>>> MissionMarsFourthHorizon/master
 
 Now we have a target, let’s get to work. First, you’ll ramp up your core skills on Azure IoT Hubs, then you’ll attempt to establish communications with the coffee pot. Good luck, and good coffee.
 
