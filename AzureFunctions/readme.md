@@ -1,6 +1,6 @@
-# MISSION GOAL : Remote Monitoring
+# MISSION GOAL : Repeating Signal
 
-Our connectivity to Mars is slowly coming back online, but we have not yet made contact with the crew. In order to automate our communication attempts, we’re going to set up a repeating signal which pings the Mars base at regular intervals.
+Our connectivity to Mars is slowly coming back online, but we have not yet made contact with the crew. In order to automate our communication attempts, we’re going to set up a **repeating signal** which pings the Mars base at regular intervals.
 
 You’ll use Azure functions to accomplish this task, and ensure that when the crew regains access to their equipment they’re aware of our concerns here on Earth. Let’s get to work.
 
@@ -15,13 +15,17 @@ Your next task is to accomplish the following objectives:
 1.	Create a function from the quickstart
 2.	Test the function
 3.	Create a new Timer Based Function in the Azure portal
-4.	Add an Azure Storage Queue output
-5.	Add a Node Function Which Is Triggered By The Queue
+4.	Add an Azure Queue Storage output
+5.	Add a JavaScript function which is triggered by the queue
 
 
 ### Objective 1: Create a function from the quickstart
 
+<<<<<<< HEAD
 A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](https://aka.ms/mars-functions-alternative) - [https://aka.ms/mars-functions-alternative](https://aka.ms/mars-functions-alternative).
+=======
+A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-portal).
+>>>>>>> MissionMarsFourthHorizon/master
 
 1. Go to the [Azure Functions portal](https://aka.ms/mars-functions-signin) - [https://aka.ms/mars-functions-signin](https://aka.ms/mars-functions-signin) and sign-in with your Azure account.
 
@@ -39,32 +43,34 @@ Since the Azure Functions quickstarts contain functional code, you can immediate
 
 1. In the **Develop** tab, review the **Code** window and notice that this Node.js code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message.
 
-	![](images/function-app-develop-tab-testing.png)
+	![](images/ob2-testfunc-step1.PNG)
 
-2. Scroll down to the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You will see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
+2. Expand the right-hand side bar, and click on the **Test** header. In the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You will see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
 
-3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value from the **Develop** tab and paste it in a browser address bar, then append the query string value `&name=yourname` and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
+    ![](images/ob2-testfunc-step2.png)
+
+3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value, by clicking the "Get Function URL" link, and paste it in a browser address bar, then append the query string value `&name=yourname` and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
 
 ---
 
 ### Objective 3: Create a new Timer Based Function in the Azure portal
-1. In the Azure portal, create a new Azure Function (New / Virtual Machines / Function App).
+1. In the Azure portal, create a new Azure Function (New / Compute / Function App).
 
 	![](images/function-app-create-in-portal.png)
 
-1. Create a new function using a resource group and dynamic plan.
+1. Create a new function using a resource group and consumption plan.
 
 	![](images/function-app-portal-create-settings.png)
 
-1. The function app should be deployed in a minute or less. Select **Timer** and **C#** and click the **Create this function** button.
+1. The function app should be deployed in a minute or less. From the resource group overview, select the function app. Select **Timer** and **C#** and click the **Create this function** button. Select "Skip the tour and start coding" when the code window opens.
 
 	![](images/function-app-timer-csharp.png)
 
-1. Click on the ##Integrate## tab on the left to view the Timer settings. The default timer schedule is set to run the function once a minute, since the cron expression will match whenever the current second value is equal to zero
+1. Click on the **Integrate** item in the tree view to view the Timer settings. The default timer schedule is set to run the function once every 5 minutes, since the cron expression will match whenever the current minute value is equal to 5.
  
 	![](images/function-app-timer-cron-default.png)
 
-1. Change this *cron expression* value to run every 5 seconds by changing the first value from `0` to `*/5` (as shown below) and clicking the **Save** button.
+1. Change this *cron expression* value to run every 5 seconds by changing the first value from `0` to `*/5`, and the second value from `*/5` to `*` (as shown below) and clicking the **Save** button.
 
 	![](images/function-app-timer-cron-updated.png)
 
@@ -74,13 +80,13 @@ Since the Azure Functions quickstarts contain functional code, you can immediate
 
 ---
 
-### Objective 4: Adding an Azure Storage Queue output
+### Objective 4: Adding an Azure Queue Storage output
 
 1. Click back to the **Integrate** tab, then click the **New Output** button.
 
 	![](images/function-app-add-output.png)
 
-1. Select Azure Storage Queue on the list, then click the **Select** button.
+1. Select Azure Queue Storage on the list, then click the **Select** button.
 
 	![](images/function-app-add-storage-queue.png)
 
@@ -90,7 +96,7 @@ Since the Azure Functions quickstarts contain functional code, you can immediate
 
 > Note: The **Message parameter name** is important, since this will also be the name of the variable in the function code.
 
-1. Click the **Develop** tab and change your function to take an `out stringoutput` parameter and write to this value, as shown below. Click the **Save** button to save your changes.
+1. Click the **Develop** tab and change your function to take an `out string output` parameter and write to this value, as shown below. Click the **Save** button to save your changes.
 
    ```csharp
    using System;
@@ -106,7 +112,7 @@ Since the Azure Functions quickstarts contain functional code, you can immediate
 
 ### Objective 5: Adding a Node Function Which Is Triggered By The Queue
 
-1. Click the **+ New Function** button on the left side. Filter the Language to JavaScript and select `QueueTrigger - Node` from the list.
+1. Click the **+ New Function** button on the left side. Filter the Language to JavaScript and select `QueueTrigger - JavaScript` from the list.
 
 	![](images/function-app-add-queue-trigger.png)
 
