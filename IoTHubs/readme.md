@@ -36,11 +36,7 @@ ____
 
 The main objective of this mission is to establish IoT Hub communications with the coffee pot on Mars. You will be working as a part of a team on this objective.
 
-<<<<<<< HEAD
-Using a top-secret technology called "Quantum Entanglement", your on-site mission leads are running a "twin" of the coffee pot code.  Whatever communications you have with the coffee pot on the Mars base will be reflected in the on-premises twin displayed on the projector in the room.  You can use the output of the twin to verify the information you gather from your own code.
-=======
 Using a top-secret technology called "_Quantum Entanglement_", your on-site Earth-Mars Bridge (EMB) mission leads are running a "twin" of the coffee pot code.  Whatever communications you have with the coffee pot on the Mars base will be reflected in the on-premises twin displayed on the projector in the room.  You can use the output of the twin to verify the information you gather from your own code.
->>>>>>> MissionMarsFourthHorizon/master
 
 ![Coffee Pot Twin](images/coffeepottwin.png)
 
@@ -79,14 +75,9 @@ Use the information above to modify the code in the "**Receive device-to-cloud m
 
 1. Locate the code:
 
-<<<<<<< HEAD
-    a. For **.NET** it's in the `ReadDeviceToCloudMessages\Program.cs` file, unless you named the project something different.
-    b. For **Node.js** it's in the `readdevicetocloudmessages\ReadDeviceToCloudMessages.js` file unless you named the folder or file something different.
-=======
     - For **.NET** it's in the `ReadDeviceToCloudMessages\Program.cs` file, unless you named the project something different.
 
     - For **Node.js** it's in the `readdevicetocloudmessages\ReadDeviceToCloudMessages.js` file unless you named the folder or file something different.
->>>>>>> MissionMarsFourthHorizon/master
 
 1. Use the URL provided by your local EMB Mission Specialist to copy the "**coffeeclient Connection String**" needed to connect to the Mars IoT Hub.  Open the file at that URL, and copy the connection string from there.
 
@@ -153,11 +144,6 @@ You do ***not*** have to send the command as multiple lines.  It will likly be e
 {"Command":"","Team":"","Parameters":""}
 ```
 
-<<<<<<< HEAD
-***Coffee Pot Device-to-Cloud Message Format***
-
-When it receives a message and has completed processing it, it will respond with a message in the following JSON string format:
-=======
 Finally, in C#, to include double quotes within a string literal you can escape the double quote with a backslash.  For example:
 
 ```c#
@@ -167,7 +153,6 @@ string message = "{\"Command\":\"\",\"Team\":\"\",\"Parameters\":\"\"}";
 ***Coffee Pot Device-to-Cloud Message Format***
 
 When the coffee pot on mars receives a message and has completed processing it, it will respond with a message in the following format:
->>>>>>> MissionMarsFourthHorizon/master
 
 ```json
 {

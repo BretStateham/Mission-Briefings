@@ -21,11 +21,7 @@ Your next task is to accomplish the following objectives:
 
 ### Objective 1: Create a function from the quickstart
 
-<<<<<<< HEAD
-A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](https://aka.ms/mars-functions-alternative) - [https://aka.ms/mars-functions-alternative](https://aka.ms/mars-functions-alternative).
-=======
 A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. The new function app is created with a default configuration. For an example of how to explicitly create your function app, see [the other Azure Functions quickstart tutorial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-portal).
->>>>>>> MissionMarsFourthHorizon/master
 
 1. Go to the [Azure Functions portal](https://aka.ms/mars-functions-signin) - [https://aka.ms/mars-functions-signin](https://aka.ms/mars-functions-signin) and sign-in with your Azure account.
 
